@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activities</title>
+</head>
+<body>
+    <h1>Activities</h1>
+    <ul>
+        {% for activity in activities %}
+        <li>{{ activity.description }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Post a New Activity</h2>
+    <form action="/activities" method="post">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br>
+        <input type="submit" value="Post Activity">
+    </form>
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>

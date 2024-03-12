@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+</head>
+<body>
+    <h1>{{ poll.question }}</h1>
+    <form action="{{ url_for('vote', poll_id=poll_id) }}" method="post">
+        {% for option in poll.options %}
+            <input type="radio" name="option" value="{{ loop.index0 }}" id="option{{ loop.index0 }}">
+            <label for="option{{ loop.index0 }}">{{ option }}</label><br>
+        {% endfor %}
+        <input type="submit" value="Vote">
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>

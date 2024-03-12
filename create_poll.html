@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Poll</title>
+</head>
+<body>
+    <h1>Create a New Poll</h1>
+    <form action="{{ url_for('create_poll') }}" method="post">
+        <label for="question">Question:</label>
+        <input type="text" name="question" id="question" required><br>
+        <label for="options">Options (comma-separated):</label>
+        <input type="text" name="options" id="options" required><br>
+        <input type="submit" value="Create Poll">
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>

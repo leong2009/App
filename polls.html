@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Polls</title>
+</head>
+<body>
+    <h1>Polls</h1>
+    {% for poll in polls %}
+    <div>
+        <h3>{{ poll.question }}</h3>
+        <form action="/polls" method="post">
+            {% for option in poll.options %}
+            <input type="radio" name="option" value="{{ option.text }}" id="option{{ loop.index }}">
+            <label for="option{{ loop.index }}">{{ option.text }}</label><br>
+            {% endfor %}
+            <input type="hidden" name="poll_id" value="{{ loop.index0 }}">
+            <input type="submit" value="Vote">
+        </form>
+    </div>
+    {% endfor %}
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Poll</title>
+</head>
+<body>
+    <h1>Create a New Poll</h1>
+    <form action="/create_poll" method="POST">
+        Question: <input type="text" name="question"><br>
+        Options (comma-separated): <input type="text" name="options"><br>
+        <input type="submit" value="Create Poll">
+    </form>
+</body>
+</html>
